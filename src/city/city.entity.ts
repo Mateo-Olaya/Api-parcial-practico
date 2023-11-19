@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { SupermarketEntity } from 'src/supermarket/supermarket.entity/supermarket.entity';
+import { SupermarketEntity } from '../supermarket/supermarket.entity';
 import { Column, Entity, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
 
 @Entity()

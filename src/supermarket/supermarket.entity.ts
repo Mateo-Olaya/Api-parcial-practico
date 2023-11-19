@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { CityEntity } from 'src/city/city.entity/city.entity';
+import { CityEntity } from '../city/city.entity';
 import { Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity()
