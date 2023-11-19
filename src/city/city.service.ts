@@ -27,9 +27,10 @@ export class CityService {
 
     async create(city: CityEntity): Promise<CityEntity> {
 
-        const country = new String(city.country);
+        const country = city.country;
+        console.log(country);
 
-        if (country != "Argentina" || country != "Ecuador" || country != "Paraguay")
+        if (country !== "Argentina" && country !== "Ecuador" && country !== "Paraguay")
             throw new BusinessLogicException(
                 'The country of the city is not valid: Must be Argentina, Ecuador or Paraguay',
                 BusinessError.BAD_REQUEST,);

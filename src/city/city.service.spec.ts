@@ -63,10 +63,12 @@ describe('CityService', () => {
     const city: CityEntity = {
       id: "10000",
       name: faker.location.city(),
-      country: "Argentina",
+      country: "Paraguay",
       habitants: faker.number.int(),
       supermarkets: [],
     }
+
+    console.log('AAAA',city.country);
  
     const newCity: CityEntity = await service.create(city);
     expect(newCity).not.toBeNull();
