@@ -67,8 +67,6 @@ describe('CityService', () => {
       habitants: faker.number.int(),
       supermarkets: [],
     }
-
-    console.log('AAAA',city.country);
  
     const newCity: CityEntity = await service.create(city);
     expect(newCity).not.toBeNull();
@@ -83,9 +81,25 @@ describe('CityService', () => {
   it('update should throw an exception for an invalid city', async () => {
     let city: CityEntity = cityList[0];
     city = {
-      ...city, name: "New name", country: "New country"
+      ...city, name: "New name"
     }
     await expect(() => service.update("0", city)).rejects.toHaveProperty("message", "The city with the given id was not found")
+  });
+
+  it('update should modify a city', async () => {
+    const city: CityEntity = cityList[0];
+    city.name = "New name";
+    city.country = "Argentina";
+
+    console.log('AAAA',city.country);
+
+    const updatedCity: CityEntity = await service.update(city.id, city);
+    expect(updatedCity).not.toBeNull();
+
+    const storedCity: CityEntity = await repository.findOne({ where: { id: city.id } })
+    expect(storedCity).not.toBeNull();
+    expect(storedCity.name).toEqual(city.name)
+    expect(storedCity.country).toEqual(city.country)
   });
 
   it('delete should remove a city', async () => {

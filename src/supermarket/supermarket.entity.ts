@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { CityEntity } from '../city/city.entity';
-import { Column, Entity, PrimaryGeneratedColumn, ManyToMany, JoinTable } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
 
 @Entity()
 export class SupermarketEntity {
@@ -20,6 +20,5 @@ export class SupermarketEntity {
   website: string;
 
   @ManyToMany(() => CityEntity, city => city.supermarkets)
-  @JoinTable()
   cities: CityEntity[];
 }

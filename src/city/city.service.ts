@@ -14,11 +14,11 @@ export class CityService {
     ) { }
 
     async findAll(): Promise<CityEntity[]> {
-        return await this.cityRepository.find({ relations: ["supermarkets"] });
+        return await this.cityRepository.find();
     }
 
     async findOne(id: string): Promise<CityEntity> {
-        const city: CityEntity = await this.cityRepository.findOne({ where: { id }, relations: ["supermarkets"] });
+        const city: CityEntity = await this.cityRepository.findOne({ where: { id } });
         if (!city)
             throw new BusinessLogicException("The city with the given id was not found", BusinessError.NOT_FOUND);
 
@@ -43,9 +43,9 @@ export class CityService {
         if (!persistedCity)
             throw new BusinessLogicException("The city with the given id was not found", BusinessError.NOT_FOUND);
 
-        const country = new String(city.country);
+        const country = city.country;
 
-        if (country != "Argentina" || country != "Ecuador" || country != "Paraguay")
+        if (country !== "Argentina" && country !== "Ecuador" && country !== "Paraguay")
             throw new BusinessLogicException(
                 'The name of the country where the city is located must be Argentina, Ecuador or Paraguay',
                 BusinessError.BAD_REQUEST,);
