@@ -85,7 +85,7 @@ describe('SupermarketService', () => {
 
   it('update should modify a supermarket', async () => {
     const supermarket: SupermarketEntity = supermarketList[0];
-    supermarket.name = "New name";
+    supermarket.name = "New name01111111111";
     supermarket.latitude = "New latitude";
      const updatedSupermarket: SupermarketEntity = await service.update(supermarket.id, supermarket);
     expect(updatedSupermarket).not.toBeNull();
