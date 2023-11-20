@@ -29,7 +29,7 @@ describe('SupermarketService', () => {
     supermarketList = [];
     for (let i = 0; i < 5; i++) {
       const supermarket: SupermarketEntity = await repository.save({
-        name: faker.company.name(),
+        name: faker.string.alphanumeric(10),
         latitude: faker.string.alphanumeric(),
         longitude: faker.string.alphanumeric(),
         website: faker.internet.url(),
@@ -65,7 +65,7 @@ describe('SupermarketService', () => {
   it('create should return a new supermarket', async () => {
     const supermarket: SupermarketEntity = {
       id: "10000",
-      name: faker.company.name(),
+      name: faker.string.alphanumeric(10),
       latitude: faker.string.alphanumeric(),
       longitude: faker.string.alphanumeric(),
       website: faker.internet.url(),

@@ -35,7 +35,7 @@ describe('CitySupermarketService', () => {
     supermarketsList = [];
     for (let i = 0; i < 5; i++) {
       const supermarket: SupermarketEntity = await supermarketRepository.save({
-        name: faker.company.name(),
+      name: faker.string.alphanumeric(10),
       latitude: faker.string.alphanumeric(),
       longitude: faker.string.alphanumeric(),
       website: faker.internet.url(),
@@ -57,7 +57,7 @@ describe('CitySupermarketService', () => {
 
   it('addSupermarketToCity should add a supermarket to a city', async () => {
     const newSupermarket: SupermarketEntity = await supermarketRepository.save({
-      name: faker.company.name(),
+      name: faker.string.alphanumeric(10),
       latitude: faker.string.alphanumeric(),
       longitude: faker.string.alphanumeric(),
       website: faker.internet.url(),
@@ -91,7 +91,7 @@ describe('CitySupermarketService', () => {
 
   it('addSupermarketToCity should throw an exception for an invalid city', async () => {
     const newSupermarket: SupermarketEntity = await supermarketRepository.save({
-      name: faker.company.name(),
+      name: faker.string.alphanumeric(10),
       latitude: faker.string.alphanumeric(),
       longitude: faker.string.alphanumeric(),
       website: faker.internet.url(),
@@ -121,7 +121,7 @@ describe('CitySupermarketService', () => {
 
   it('findSupermarketFromCity should throw an exception for a supermarket not associated to the city', async () => {
     const newSupermarket: SupermarketEntity = await supermarketRepository.save({
-      name: faker.company.name(),
+      name: faker.string.alphanumeric(10),
       latitude: faker.string.alphanumeric(),
       longitude: faker.string.alphanumeric(),
       website: faker.internet.url(),
@@ -141,7 +141,7 @@ describe('CitySupermarketService', () => {
 
   it('updateSupermarketsFromCity should update the supermarkets from a city', async () => {
     const newSupermarket: SupermarketEntity = await supermarketRepository.save({
-      name: faker.company.name(),
+      name: faker.string.alphanumeric(10),
       latitude: faker.string.alphanumeric(),
       longitude: faker.string.alphanumeric(),
       website: faker.internet.url(),
@@ -158,7 +158,7 @@ describe('CitySupermarketService', () => {
 
   it('updateSupermarketsFromCity should throw an exception for an invalid city', async () => {
     const newSupermarket: SupermarketEntity = await supermarketRepository.save({
-      name: faker.company.name(),
+      name: faker.string.alphanumeric(10),
       latitude: faker.string.alphanumeric(),
       longitude: faker.string.alphanumeric(),
       website: faker.internet.url(),
@@ -197,7 +197,7 @@ describe('CitySupermarketService', () => {
 
   it('deleteSupermarketFromCity should thrown an exception for an non asocciated supermarket', async () => {
     const newSupermarket: SupermarketEntity = await supermarketRepository.save({
-      name: faker.company.name(),
+      name: faker.string.alphanumeric(10),
       latitude: faker.string.alphanumeric(),
       longitude: faker.string.alphanumeric(),
       website: faker.internet.url(),
